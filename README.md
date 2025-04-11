@@ -76,6 +76,7 @@ You can use Handlebars helpers if you feel like it is required.
 
 ### 4. Format the project into a Github repository for review. 
 
+* Export the template end result in HTML format
 * Write a short summary of what you did to achieve the goal, which tools you used and what challenges you faced. Include it in your repository
 * Push latest version to Github Repository and share it with mikk.parg@telia.ee
 
