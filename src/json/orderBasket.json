@@ -1,0 +1,178 @@
+{
+  "id": "ORD-102938",
+  "orderDate": "2025-04-02T10:15:00Z",
+  "requestedStartDate": "2025-04-06T00:00:00Z",
+  "orderType": "productOrder",
+  "category": "eCommerce",
+  "state": "acknowledged",
+  "relatedParty": [
+    {
+      "role": "customer",
+      "name": "Ülo Liblikas",
+      "orderAadress": {
+        "streetName": "Mustamäe tee",
+        "streetNumber": "3",
+        "apartmentNumber": "13",
+        "city": "Tallinn",
+        "country": "Estonia",
+        "postalCode": "10615"
+      }
+    },
+    {
+      "role": "provider",
+      "name": "Device Shop",
+      "phoneNumber": "+372 555555555",
+      "aadress": "Suur-Ameerika tn 1, 10122 Tallinn"
+    }
+  ],
+  "productOrderItem": [
+    {
+      "action": "ADD",
+      "id": "6266806",
+      "productOffering": {
+        "description": "iPhone 16 Pro",
+        "id": "IPHONE_16_PRO_128GB_UM_SKU",
+        "productCharacteristic": [
+          {
+            "name": "color",
+            "value": "Ultramarine"
+          },
+          {
+            "name": "storage",
+            "value": "128GB"
+          }
+        ]
+      },
+      "productOrderItem": [
+        {
+          "action": "ADD",
+          "id": "9022498",
+          "productOffering": {
+            "description": "Device Insurance for 24 months",
+            "id": "INSURANCE_24_SKU"
+          },
+          "price": {
+            "dutyFreeAmount": { "unit": "EUR", "value": 7.02 },
+            "taxIncludedAmount": { "unit": "EUR", "value": 9.00 },
+            "taxRate": 22.0
+          }
+        },
+        {
+          "action": "ADD",
+          "id": "2022338",
+          "productOffering": {
+            "description": "Security Application for 12 months",
+            "id": "SECURITY_12_SKU"
+          },
+          "price": {
+            "dutyFreeAmount": { "unit": "EUR", "value": 3.89 },
+            "taxIncludedAmount": { "unit": "EUR", "value": 4.99 },
+            "taxRate": 22.0
+          }
+        },
+        {
+          "action": "ADD",
+          "id": "556677",
+          "productOffering": {
+            "id": "SECURITY_ACCOUNT",
+            "name": "Security Account"
+          },
+          "price": {
+            "dutyFreeAmount": { "unit": "EUR", "value": null },
+            "taxIncludedAmount": { "unit": "EUR", "value": null },
+            "taxRate": 22.0
+          }
+        }
+      ],
+      "itemPrice": {
+        "price": {
+          "dutyFreeAmount": { "unit": "EUR", "value": 772.20 },
+          "taxIncludedAmount": { "unit": "EUR", "value": 990.00 },
+          "taxRate": 22.0
+        },
+        "priceAlteration": [
+          {
+            "description": "50% discount code",
+            "name": "50_OFF_DISCOUNT_CD",
+            "price": {
+              "dutyFreeAmount": { "unit": "EUR", "value": 386.10 },
+              "percentage": null,
+              "taxIncludedAmount": { "unit": "EUR", "value": 495.00 },
+              "taxRate": 22.0
+            },
+            "priceType": "DISCOUNT",
+            "validFor": {
+              "endDateTime": "2025-07-31T20:59:59Z",
+              "startDateTime": "2025-03-31T08:38:08Z"
+            },
+            "state": "PENDING_ACTIVE"
+          }
+        ]
+      }
+    },
+    {
+      "action": "ADD",
+      "id": "5987419",
+      "productOffering": {
+        "description": "Mackbook Pro 16''",
+        "id": "MACBOOK_PRO_16_SG_512_SKU",
+        "productCharacteristic": [
+          {
+            "name": "color",
+            "value": "Yellow"
+          },
+          {
+            "name": "storage",
+            "value": "512GB"
+          }
+        ]
+      },
+      "productOrderItem": [
+        {
+          "action": "ADD",
+          "id": "6440032",
+          "productOffering": {
+            "description": "Device Insurance for 24 months",
+            "id": "INSURANCE_24_SKU"
+          },
+          "price": {
+            "dutyFreeAmount": { "unit": "EUR", "value": 7.02 },
+            "taxIncludedAmount": { "unit": "EUR", "value": 9.00 },
+            "taxRate": 22.0
+          }
+        }
+      ],
+      "itemPrice": {
+        "price": {
+          "dutyFreeAmount": { "unit": "EUR", "value": 1716.00 },
+          "taxIncludedAmount": { "unit": "EUR", "value": 2200.00 },
+          "taxRate": 22.0
+        },
+        "priceAlteration": []
+      }
+    }
+  ],
+  "orderTotalPrice": {
+    "price": {
+      "dutyFreeAmount": { "unit": "EUR", "value": 2506.13 },
+      "taxIncludedAmount": { "unit": "EUR", "value": 3212.99 },
+      "taxRate": 22.0
+    },
+    "priceAlteration": [
+      {
+        "price": {
+          "dutyFreeAmount": { "unit": "EUR", "value": 2120.03 },
+          "percentage": null,
+          "taxIncludedAmount": { "unit": "EUR", "value": 2717.99 },
+          "taxRate": 22.0
+        },
+        "priceType": "DISCOUNT",
+        "validFor": {
+          "endDateTime": "2025-07-31T20:59:59Z",
+          "startDateTime": "2025-03-31T08:38:08Z"
+        },
+        "state": "PENDING_ACTIVE"
+      }
+    ]
+  }
+}
