@@ -46,7 +46,7 @@ Handlebars.js is used to inject dynamic content into templates.
 # :open_file_folder: Start of the Assignment
 
 Clone the assignment repository from GitHub to a local folder (if you haven’t already):
-:point_right: [https://github.com/](https://github.com/)
+:point_right: [[https://github.com/](https://github.com/cip-trainee-assignment/assignment-2025/)]
 
 ---
 
