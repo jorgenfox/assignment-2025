@@ -80,7 +80,7 @@ You can use Handlebars helpers if you feel like it is required.
 
 * Export the template end result in HTML format
 * Write a short summary of what you did to achieve the goal, which tools you used and what challenges you faced. Include it in your repository
-* Push latest version to Github Repository and share it with mikk.parg@telia.ee
+* Push latest version to a Private Github Repository and share it with the user https://github.com/mikk-parg
 
 ### 5. Contact us if there are any questions
 
