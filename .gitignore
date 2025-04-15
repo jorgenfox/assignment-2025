@@ -1,1 +1,4 @@
 .DS_Store
+src/mjml/node_modules
+src/mjml/package-lock.json
+src/mjml/package.json

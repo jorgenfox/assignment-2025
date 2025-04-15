@@ -1,15 +1,13 @@
 <mjml>
   <mj-head>
     <mj-attributes>
-    <mj-class name="text" font-size="16px" />
-    <mj-class name="text-small" font-size="14px" />
-
-    <mj-class name="bold" font-weight="bold" />
-
-    <mj-class name="side-padding" padding="0 24px 0 24px" />
+      <mj-class name="text" font-size="16px" />
+      <mj-class name="text-small" font-size="14px" />
+      <mj-class name="bold" font-weight="bold" />
+      <mj-class name="side-padding" padding="0 24px 0 24px" />
     </mj-attributes>
-
     <mj-style inline="inline">
+      .sub-product-column-name { padding-left: 24px !important; }
     </mj-style>
   </mj-head>
   <mj-body>
@@ -18,88 +16,97 @@
         <mj-image src="https://res.cloudinary.com/telia/image/upload/c_fill,g_center,w_600/MarTech/intern-assignment/device-shop-logo.png" alt="Logo" width="200px" />
       </mj-column>
     </mj-section>
+
+    {{#with (findCustomer relatedParty)}}
     <mj-section>
       <mj-column>
         <mj-text font-size="16px" color="#333333">
-          Hi [Customer Name],
+          Hi {{this.name}},
         </mj-text>
       </mj-column>
     </mj-section>
 
     <mj-wrapper background-color="#C5EFD9" padding="24px 0 24px 0" border-radius="16px">
-    <mj-section padding="0">
-      <mj-column mj-class="side-padding">
-        <mj-text padding="0 0 8px 0" font-size="24px" font-weight="bold" color="#002411">
-          Order
-        </mj-text>
-        <mj-text padding="0 0 16px 0" font-size="14px" color="#002411">
-          Shipping Aadress: [Shipping Address]
-        </mj-text>
+      <mj-section padding="0">
+        <mj-column mj-class="side-padding">
+          <mj-text padding="0 0 8px 0" font-size="24px" font-weight="bold" color="#002411">
+            Order {{../id}}
+          </mj-text>
+          <mj-text padding="0 0 16px 0" font-size="14px" color="#002411">
+            Shipping Address: {{formatAddress this.orderAadress}}
+          </mj-text>
+          <mj-divider border-color="#333333" border-width="1px" padding="0"></mj-divider>
+        </mj-column>
+      </mj-section>
+    {{/with}}
 
-        <mj-divider border-color="#333333" border-width="1px" padding="0"></mj-divider>        
-      </mj-column>
-    </mj-section>
+    {{#each productOrderItem}}
+      <mj-section padding="16px 0 0 0">
+        <mj-column padding="0" width="70%">
+          <mj-text mj-class="text" font-weight="bold" color="#333333" padding-bottom="4px">
+            {{this.productOffering.description}} {{findCharacteristic this.productOffering.productCharacteristic 'storage'}}
+          </mj-text>
+          {{#if (findCharacteristic this.productOffering.productCharacteristic 'color')}}
+          <mj-text mj-class="text-small" color="#333333" padding="0 24px 0 24px">
+            {{findCharacteristic this.productOffering.productCharacteristic 'color'}}
+          </mj-text>
+          {{/if}}
+        </mj-column>
+        <mj-column padding="0 24px 0 24px" width="30%">
+          <mj-text mj-class="text" color="#333333" align="right">
+            {{formatPrice this.itemPrice.price.taxIncludedAmount.value this.itemPrice.price.taxIncludedAmount.unit}}
+          </mj-text>
+        </mj-column>
+      </mj-section>
 
-    <mj-section padding="16px 0 0 0">
-      <mj-column padding="0" width="70%">
-        <mj-text mj-class="text" font-weight="bold" color="#333333">
-         [PRODUCT_NAME_1] [STORAGE]
-        </mj-text>
-        <mj-text mj-class="text-small"  font-size="14px" color="#333333" padding="0 24px 0 24px">
-        [COLOR]
-        </mj-text>
-      </mj-column>
-      <mj-column padding="0" width="30%">
-        <mj-text mj-class="text" color="#333333" align="right">
-         [PRICE]
-        </mj-text>
-      </mj-column>
-    </mj-section>
+      {{#each this.productOrderItem}}
+        {{#if (isDisplayable this)}}
+          <mj-section padding="4px 0 0 0">
+            <mj-column padding="0" width="70%">
+              <mj-text mj-class="text-small" color="#333333" padding="0 24px 0 48px">
+                {{this.productOffering.description}}
+              </mj-text>
+            </mj-column>
+            <mj-column padding="0 24px 0 24px" width="30%">
+              <mj-text mj-class="text-small" color="#333333" align="right">
+                 {{formatPrice this.price.taxIncludedAmount.value this.price.taxIncludedAmount.unit}}
+              </mj-text>
+            </mj-column>
+          </mj-section>
+        {{/if}}
+      {{/each}}
 
-    <mj-section padding="16px 0 0 0">
-      <mj-column padding="0" width="70%">
-        <mj-text mj-class="text" font-weight="bold" color="#333333">
-         [PRODUCT_NAME_2] [STORAGE]
-        </mj-text>
-        <mj-text mj-class="text-small"  font-size="14px" color="#333333" padding="0 24px 0 24px">
-        [COLOR]
-        </mj-text>
-      </mj-column>
-      <mj-column padding="0" width="30%">
-        <mj-text mj-class="text" color="#333333" align="right">
-         [PRICE]
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
+    {{/each}}
 
     <mj-section padding="24px 0 24px 0">
       <mj-column mj-class="side-padding">
-        <mj-divider border-color="#333333" border-width="1px" padding="0"></mj-divider>   
+        <mj-divider border-color="#333333" border-width="1px" padding="0"></mj-divider>
       </mj-column>
     </mj-section>
 
-    <mj-section padding="0">
-      <mj-column padding="0">
-        <mj-text font-size="24px" color="#333333">
-         <b> Total Price: </b> [Total Price]
+    <mj-section padding="0 0 24px 0">
+      <mj-column mj-class="side-padding" padding="0">
+        {{#with (calculateOriginalTotal orderTotalPrice)}}
+        <mj-text font-size="16px" color="#333333" padding-bottom="8px" align="right">
+          Price without Discount: {{formatPrice this.value this.unit}}
         </mj-text>
-        <mj-text font-size="16px" color="#333333" padding-top="0">
-         Price without Discount: [Price without Discount]
+        {{/with}}
+        <mj-text font-size="24px" color="#333333" align="right">
+          <b> Total Price: </b> {{formatPrice orderTotalPrice.price.taxIncludedAmount.value orderTotalPrice.price.taxIncludedAmount.unit}}
         </mj-text>
       </mj-column>
     </mj-section>
-
     </mj-wrapper>
 
+    {{#with (findProvider relatedParty)}}
     <mj-section>
       <mj-column>
         <mj-text font-size="16px" color="#333333">
-          If you have any questions, feel free to contact us at [Contact Information].
+          If you have any questions, feel free to contact us at {{this.phoneNumber}}.
         </mj-text>
       </mj-column>
     </mj-section>
-
+    {{/with}}
 
     <mj-section>
       <mj-column>
@@ -114,12 +121,12 @@
           Follow us on:
         </mj-text>
         <mj-social font-size="14px" icon-size="20px" mode="horizontal">
-          <mj-social-element name="facebook" href="[Facebook URL]"></mj-social-element>
-          <mj-social-element name="twitter" href="[Twitter URL]"></mj-social-element>
-          <mj-social-element name="instagram" href="[Instagram URL]"></mj-social-element>
+          <mj-social-element name="facebook" href="{{facebookUrl}}"></mj-social-element>
+          <mj-social-element name="twitter" href="{{twitterUrl}}"></mj-social-element>
+          <mj-social-element name="instagram" href="{{instagramUrl}}"></mj-social-element>
         </mj-social>
         <mj-text align="center" font-size="14px" color="#999999">
-          <a href="[Privacy Policy URL]" style="color: #999999;">Privacy Policy</a> | <a href="[Terms of Service URL]" style="color: #999999;">Terms of Service</a>
+          <a href="{{privacyPolicyUrl}}" style="color: #999999;">Privacy Policy</a> | <a href="{{termsOfServiceUrl}}" style="color: #999999;">Terms of Service</a>
         </mj-text>
       </mj-column>
     </mj-section>
